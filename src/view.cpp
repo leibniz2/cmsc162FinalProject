@@ -33,7 +33,8 @@ void View::drawTriangle( Particle * p1, Particle *p2,
 }
 
 void View::drawObject() {
-    glBegin( GL_TRIANGLES );
+    if ( ctr -> g_has_cloth_id_val() ) {
+        glBegin( GL_TRIANGLES );
         for( int x = 0 ; x < cloth.get_particles_width() - 1; x++ ) {
             for( int y = 0; y < cloth.get_particles_height() - 1; y++ ) {
                 Vec3 color( 0, 0, 0 );
@@ -49,7 +50,8 @@ void View::drawObject() {
                     cloth.getParticle( x, y + 1), color );
             }
         }
-    glEnd();
+        glEnd();
+    }
 }
 
 void View::setMainWindow( int argc, char ** argv ) {
@@ -77,7 +79,7 @@ void View::display( void ) {
     glClear( GL_COLOR_BUFFER_BIT );
     glLoadIdentity();
 
-    glTranslatef( -1.20f, 0.2f, 0.0f );
+    glTranslatef( ctr -> g_translatexy_id()[0], ctr -> g_translatexy_id()[1] , 0.0f );
     glRotatef( 30.0, 0.0, 1.0, 0.0 );
     drawObject();
 
@@ -89,6 +91,7 @@ void View::reshape( int w, int h ){
     window_width = w;
     window_height = h;
     GLUI_Master.get_viewport_area( &vx, &vy, &vw, &vh );
+    glViewport( vx, vy, vw, vh );
     glutPostRedisplay();
 }
 
@@ -175,5 +178,9 @@ void View::setupGLUI() {
     // glui_r_swindow -> add_button ( "Apply" , 4 , glui_callback );
     // glui_r_swindow -> add_button ( "Default" , 5 , glui_callback );
 
+    GLUI_Panel * t_panel = glui_r_swindow -> add_panel_to_panel( main_panel, "Controls");
+    GLUI_Translation *t_xy = glui_r_swindow -> add_translation_to_panel ( t_panel, 
+        "Translation XY", GLUI_TRANSLATION_XY, ctr -> g_translatexy_id() , 5, glui_callback);
+    t_xy -> set_speed( 0.001f );
     glui_r_swindow -> set_main_gfx_window ( main_window );
 }

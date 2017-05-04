@@ -17,8 +17,8 @@ class Values {
 
         int ball_style_no;
         int cloth_style_no; 
-        int ball_status; // is shown or hidden
-        int cloth_status; // is shown or hidden
+        // int ball_status; // is shown or hidden
+        // int cloth_status; // is shown or hidden
 
 
         // view related flags
@@ -35,8 +35,8 @@ class Values {
         float get_bstyle_no();
         float get_cstyle_no();
 
-        int has_ball();
-        int has_cloth();
+        // int has_ball();
+        // int has_cloth();
 
         void set_cfactor( float s );
         void set_gfactor( float s );
@@ -45,8 +45,8 @@ class Values {
         void set_bstyle_no( float s );
         void set_cstyle_no( float s );
         
-        void set_ball( bool s );
-        void set_cloth( bool s );
+        // void set_ball( bool s );
+        // void set_cloth( bool s );
 
         static Values* Instance();
 };

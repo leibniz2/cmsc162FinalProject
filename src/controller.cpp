@@ -75,11 +75,8 @@ void Controller::callback_fn( int control_id ) {
         case BALL_LISTBOX:
             printf ("BALL LIST BOX ITEM CHANGED");
         break;
-        case CLOTH_CHECKBOX:
-            printf ("CLOTH CHECK BOX ITEM CHANGED");
-        break;
-        case BALL_CHECKBOX:
-            printf ("BALL CHECK BOX ITEM CHANGED");
+        case TRANSLATION_XY:
+            printf ("%f, %f \n", translate_xy[0], translate_xy[1]);
         break;
         default:
             printf ("Uncaught exception from GLUI callback");
@@ -120,6 +117,14 @@ int* Controller::g_gravity_item_id(){
 //     ball_item_id = s;
 // }
 
+int Controller::g_has_cloth_id_val() {
+    return has_cloth_id;
+}
+
+int Controller::g_has_ball_id_val() {
+    return has_ball_id;
+}
+
 int* Controller::g_cloth_item_id(){
     return &cloth_item_id;
 }
@@ -135,3 +140,11 @@ int* Controller::g_has_cloth_id() {
 int* Controller::g_has_ball_id() {
     return &has_ball_id;
 }
+
+float* Controller::g_translatexy_id() {
+    return &translate_xy[0];
+}
+
+// float[] Controller::g_translatexy_id_val() {
+//     return translate_xy;
+// }

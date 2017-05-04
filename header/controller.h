@@ -11,6 +11,7 @@ class Controller {
         int ball_item_id;
         int has_cloth_id;
         int has_ball_id;
+        float translate_xy[2] = { -1.00f, 0.2f };
         Controller();
         static Controller* c_pInstance;
 
@@ -21,8 +22,7 @@ class Controller {
             WIND_LISTBOX,
             CLOTH_LISTBOX,
             BALL_LISTBOX,
-            CLOTH_CHECKBOX,
-            BALL_CHECKBOX
+            TRANSLATION_XY
         };
 
         enum Slider {
@@ -56,6 +56,9 @@ class Controller {
         // void s_cloth_item_id( int s );
         // void s_ball_item_id( int s );
         // void s_has_cloth_id( int s );
+        int g_has_cloth_id_val();
+        int g_has_ball_id_val();
+        // float[] g_translatexy_id_val();
 
         int * g_has_gravity_id();
         int * g_wind_item_id();
@@ -65,6 +68,7 @@ class Controller {
         int * g_ball_item_id();
         int * g_has_cloth_id();
         int * g_has_ball_id();
+        float * g_translatexy_id();
 
         void callback_fn ( int control_id );
         float setSlider( int value_id );

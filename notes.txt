@@ -10,3 +10,9 @@ BALL STYLE : STYLE / SHOWN / HIDDEN
 
 VELOCITY ( of the cloth )
 
+
+
+*to do
+
+need to fix tranlation
+add object styles

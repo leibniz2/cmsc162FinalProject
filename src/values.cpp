@@ -17,8 +17,8 @@ Values::Values() {
     wind_factor = 1;
     ball_style_no = 0 ;
     cloth_style_no = 0;
-    ball_status = 0;
-    cloth_status = 1;
+    // ball_status = 0;
+    // cloth_status = 1;
 }
 
 float Values::get_cfactor() {
@@ -41,13 +41,13 @@ float Values::get_cstyle_no() {
     return cloth_style_no;
 }
 
-int Values::has_ball() {
-    return ball_status;
-}
+// int Values::has_ball() {
+//     return ball_status;
+// }
 
-int Values::has_cloth() {
-    return cloth_status;
-}
+// int Values::has_cloth() {
+//     return cloth_status;
+// }
 
 void Values::set_cfactor( float s ) {
     constraint_factor = s;
@@ -69,10 +69,10 @@ void Values::set_cstyle_no( float s ) {
     cloth_style_no = s;
 }
 
-void Values::set_ball( bool s ) {
-    ball_status = s;
-}
+// void Values::set_ball( bool s ) {
+//     ball_status = s;
+// }
 
-void Values::set_cloth( bool s ) {
-    cloth_status = s;
-}
+// void Values::set_cloth( bool s ) {
+//     cloth_status = s;
+// }
