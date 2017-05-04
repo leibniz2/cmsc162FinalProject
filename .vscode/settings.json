@@ -35,6 +35,10 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "*.tcc": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "slist": "cpp",
+        "array": "cpp",
+        "rope": "cpp",
+        "valarray": "cpp"
     }
 }

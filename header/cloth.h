@@ -17,13 +17,16 @@ class Cloth {
         Vec3 calcTriangleNormal ( Particle *p1, Particle *p2, Particle *p3);
         void addWindForcesForTriangle ( Particle *p1, Particle *p2,
             Particle *p3, const Vec3 direction );
-        void update_particle_constraint ();
+        void update_particle_constraint ( );
         void update_particle_formation ();
-        
+
     public:
         Cloth ( float width, float height, 
             int num_particles_width, int num_particles_height );
+        void build( float width, float height,
+            int num_particles_width, int num_particles_height );
         Particle * getParticle ( int x , int y );
+        Cloth () {}
         void addForce ( const Vec3 direction );
         void windForce( const Vec3 direction );
         // void drawTriangle ( Particle *p1, Particle *p2, 
