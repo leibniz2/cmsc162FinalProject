@@ -8,10 +8,10 @@ gravity (up/down), and wind speed. Some custom object properties are also availa
 approach however tweaked to further simulate it and also to add enhancement on performance and UI.
 
 #### Dependencies:
-    *opengl
-    *glut - for windowing
-    *glui - for ui toolkit
-    *soil - (optional) for image texturing support
+    * opengl
+    * glut - for windowing
+    * glui - for ui toolkit
+    * soil - (optional) for image texturing support
 
 #### Environment:
     Tested on 
