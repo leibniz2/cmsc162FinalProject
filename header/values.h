@@ -2,11 +2,11 @@
 #define _VALUES_
 
 #define DAMPING 0.01
-#define STEP_SIZE 0.25
+#define STEP_SIZE 0.5*0.5
 #define CONSTRAINT_ITERATIONS 15
 
-#define WIND_MULT 10.0
-#define GRAVITY_MULT -0.3
+#define WIND_MULT 0.3
+#define GRAVITY_MULT -0.2
 
 class Values {
     private:

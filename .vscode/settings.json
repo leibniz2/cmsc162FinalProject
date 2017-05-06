@@ -39,6 +39,7 @@
         "slist": "cpp",
         "array": "cpp",
         "rope": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "complex": "cpp"
     }
 }

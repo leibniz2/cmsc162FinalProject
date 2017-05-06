@@ -1,8 +1,8 @@
 CUSTOM VARIABLES
 
-WIND : SPEED / PRESENT / ABSENT
-GRAVITY : G-FORCE /  PRESENT / ABSENT
-CLOTH RIGIDITY ( CONSTRAINT ITERATIONS) : RIGID / SOFT
+WIND : SPEED / PRESENT / ABSENT ( DONE )
+GRAVITY : G-FORCE /  PRESENT / ABSENT ( DONE )
+CLOTH RIGIDITY ( CONSTRAINT ITERATIONS) : RIGID / SOFT ( DONE )
 
 
 CLOTH : STYLE / SHOWN / HIDDEN
@@ -14,5 +14,15 @@ VELOCITY ( of the cloth )
 
 *to do
 
-need to fix tranlation
-add object styles
+wind controls : DONE
+gravity controls : DONE
+rigidity: DONE
+collision detection: DONE
+translation: DONE
+
+cloth styles: DONE
+ui alignment DONE
+ui resizing ( fixed ) DONE
+rotation ( DONE BUT comment out)
+code cleanup
+documentation

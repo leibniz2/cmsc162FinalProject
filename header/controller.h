@@ -11,7 +11,12 @@ class Controller {
         int ball_item_id;
         int has_cloth_id;
         int has_ball_id;
-        float translate_xy[2] = { -1.00f, 0.2f };
+        float translate_xy[2] = { -10.0f, 6.0f };
+        float rotation_matrix[16] = 
+        { 1.0, 0.0, 0.0, 0.0, 
+          0.0, 1.0, 0.0, 0.0,
+          0.0, 0.0, 1.0, 0.0, 
+          0.0, 0.0, 0.0, 1.0  };	
         Controller();
         static Controller* c_pInstance;
 
@@ -58,6 +63,8 @@ class Controller {
         // void s_has_cloth_id( int s );
         int g_has_cloth_id_val();
         int g_has_ball_id_val();
+        int g_cloth_item_id_val();
+        int g_ball_item_id_val();
         // float[] g_translatexy_id_val();
 
         int * g_has_gravity_id();
@@ -69,8 +76,11 @@ class Controller {
         int * g_has_cloth_id();
         int * g_has_ball_id();
         float * g_translatexy_id();
+        float * g_rotation_id();
 
         void callback_fn ( int control_id );
+        void keyboard( unsigned char key, int x, int y );
+        void special( int key, int x, int y );
         float setSlider( int value_id );
         static Controller* Instance();
 };

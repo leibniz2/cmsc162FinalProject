@@ -6,8 +6,9 @@
 #include <GL/gl.h>
 
 #include "cloth.h"
-#include "particle.h" // remove this soon
-#include "vec3.h" // remove this too
+#include "ball.h"
+#include "particle.h" 
+#include "vec3.h"
 
 
 class View {
@@ -15,6 +16,7 @@ class View {
     private:
         GLuint main_window;
         Cloth cloth;
+        Ball ball;
         int window_width;
         int window_height;
         int vx;
@@ -33,6 +35,8 @@ class View {
         void setupGLUI();
         void setMainWindow( int argc, char ** argv );
         void display( void );
+        void states();
+        Vec3 setStyles( int x , int y);
         void reshape( int w, int h );
 };
 

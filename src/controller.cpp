@@ -1,8 +1,11 @@
 #include <cstdio>
 #include <stddef.h>
+#include <GL/glut.h>
 
 #include "controller.h"
 #include "values.h"
+
+#define XY_SPEED 0.05
 
 static Values* v = Values::Instance();
 
@@ -70,31 +73,55 @@ void Controller::callback_fn( int control_id ) {
             v -> set_wfactor( setSlider(wind_item_id) );
         break;
         case CLOTH_LISTBOX:
-            printf ("CLOTH LIST BOX ITEM CHANGED");
+            // printf ("CLOTH LIST BOX ITEM CHANGED");
         break;
         case BALL_LISTBOX:
-            printf ("BALL LIST BOX ITEM CHANGED");
+            // printf ("BALL LIST BOX ITEM CHANGED");
         break;
         case TRANSLATION_XY:
-            printf ("%f, %f \n", translate_xy[0], translate_xy[1]);
+            // translate_xy[0] += 0.02;
+            // printf ("%f, %f \n", translate_xy[0], translate_xy[1]);
         break;
         default:
             printf ("Uncaught exception from GLUI callback");
     }
 }
 
+void Controller::keyboard( unsigned char key, int x, int y ) {
+    // printf("Keyboard pressed\n");
+    switch( key ) {
+        case 'r':
+            translate_xy[0] = -10.00f;
+            translate_xy[1] = 6.0f;
+        break;
+        case 'R':
+           translate_xy[0] = -10.00f;
+            translate_xy[1] = 6.0f;
+        break;
+        default:
+            printf(" Unhandle keyboard callback key: %c ", key );
+    }
+}
 
-// void Controller::s_wind_item_id(int s ){
-//     wind_item_id = s;
-// }
-
-// void Controller::s_rigidity_item_id(int s ){
-//     rigidity_item_id = s;
-// }
-
-// void Controller::s_gravity_item_id(int s ){
-//     gravity_item_id = s;
-// }
+void Controller::special( int key, int x, int y ){
+    // printf("special pressed\n");
+    switch( key ) {
+        case GLUT_KEY_UP:
+            translate_xy[1] += XY_SPEED;
+        break;
+        case GLUT_KEY_DOWN:
+            translate_xy[1] -= XY_SPEED;
+        break;
+        case GLUT_KEY_LEFT:
+            translate_xy[0] -= XY_SPEED;
+        break;
+        case GLUT_KEY_RIGHT:
+            translate_xy[0] += XY_SPEED;
+        break;
+        default:
+            printf(" Unhandled special callback key: %d" , key );
+    }
+}
 
 int* Controller::g_wind_item_id(){
     return &wind_item_id;
@@ -108,21 +135,20 @@ int* Controller::g_gravity_item_id(){
     return &gravity_item_id;
 }
 
-
-// void Controller::s_cloth_item_id(int s ){
-//     cloth_item_id = s;
-// }
-
-// void Controller::s_ball_item_id(int s ){
-//     ball_item_id = s;
-// }
-
 int Controller::g_has_cloth_id_val() {
     return has_cloth_id;
 }
 
 int Controller::g_has_ball_id_val() {
     return has_ball_id;
+}
+
+int Controller::g_cloth_item_id_val() {
+    return cloth_item_id;
+}
+
+int Controller::g_ball_item_id_val() {
+    return ball_item_id;
 }
 
 int* Controller::g_cloth_item_id(){
@@ -143,6 +169,10 @@ int* Controller::g_has_ball_id() {
 
 float* Controller::g_translatexy_id() {
     return &translate_xy[0];
+}
+
+float* Controller::g_rotation_id() {
+    return &rotation_matrix[0];
 }
 
 // float[] Controller::g_translatexy_id_val() {

@@ -26,6 +26,7 @@
                         "src/particle.cpp",
                         "src/constraint.cpp",
                         "src/cloth.cpp",
+                        "src/ball.cpp",
                         "src/values.cpp",
                         "src/controller.cpp",
                         "src/view.cpp",

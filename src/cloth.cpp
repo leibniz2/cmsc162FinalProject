@@ -156,6 +156,7 @@ void Cloth::update_particle_formation() {
 
 void Cloth::update_particle_constraint () {
     std::vector<Constraint>::iterator constraint;
+    // for(int i=0; i<CONSTRAINT_ITERATIONS * (v -> get_cfactor()); i++)
     for(int i=0; i<CONSTRAINT_ITERATIONS * (v -> get_cfactor()); i++) {
         for(constraint = constraints.begin(); constraint != constraints.end(); constraint++ ) {
             (*constraint).satisfyConstraint(); // satisfy constraint.
@@ -181,7 +182,7 @@ void Cloth::update_properties() {
     float wy = v -> get_gfactor() * GRAVITY_MULT ;
     addForce( Vec3(0, wy, 0 ) * STEP_SIZE ); // add gravity pointing down
     windForce( Vec3(wx, 0, 0.2 * wx) * STEP_SIZE ); // generatae some wind
-    update_particle_constraint();
+    update_particle_constraint(); // time step
     update_particle_formation();
 }
 
@@ -193,6 +194,19 @@ void Cloth::windForce(const Vec3 direction) {
             addWindForcesForTriangle(getParticle(x+1,y+1),getParticle(x+1,y),getParticle(x,y+1),direction);
         }
     }
+}
+
+void Cloth::ball_collision(const Vec3 center,const float radius ) {
+		std::vector<Particle>::iterator particle;
+		for(particle = particles.begin(); particle != particles.end(); particle++)
+		{
+			Vec3 v = (*particle).getPos()-center;
+			float l = v.length();
+			if ( v.length() < radius) // if the particle is inside the ball
+			{
+				(*particle).offsetPos(v.normalized()*(radius-l)); // project the particle to the surface of the ball
+			}
+		}
 }
 
 int Cloth::get_particles_height() {
