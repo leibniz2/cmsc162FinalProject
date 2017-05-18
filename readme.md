@@ -20,6 +20,6 @@ approach however tweaked to further simulate it and also to add enhancement on p
         3. Ubuntu 
 
 #### Documentation:
-    [PDF](https://drive.google.com/open?id=0BwlFIX-7PKFIakt0U2lBcmh1U1U)
+    https://goo.gl/sQwpsl
     
 ##### Feel free to submit issues / pull request. A star is highly appreciated. 
