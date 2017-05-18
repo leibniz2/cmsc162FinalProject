@@ -37,7 +37,35 @@
                      "-lglu32",
                      "-lOpenGL32",
                      "-o",
-                    "out"
+                    "outDbg"
+                ]
+            }
+        },
+        {
+            "taskName": "release",
+            "command": "g++",
+            "isShellCommand": true,
+            "windows": {
+                "args": [
+                    "src/main.cpp",
+                        "src/vec3.cpp",
+                        "src/particle.cpp",
+                        "src/constraint.cpp",
+                        "src/cloth.cpp",
+                        "src/ball.cpp",
+                        "src/values.cpp",
+                        "src/controller.cpp",
+                        "src/view.cpp",
+                     "-I${cwd}/header",
+                     "-std=c++11",
+                     "-O3",
+                     "-s",
+                     "-lglui",
+                     "-lglut32",
+                     "-lglu32",
+                     "-lOpenGL32",
+                     "-o",
+                    "outRelease"
                 ]
             }
         }

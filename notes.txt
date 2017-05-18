@@ -19,6 +19,7 @@ gravity controls : DONE
 rigidity: DONE
 collision detection: DONE
 translation: DONE
+air resistance:
 
 cloth styles: DONE
 ui alignment DONE

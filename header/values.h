@@ -17,12 +17,6 @@ class Values {
 
         int ball_style_no;
         int cloth_style_no; 
-        // int ball_status; // is shown or hidden
-        // int cloth_status; // is shown or hidden
-
-
-        // view related flags
-        // bool stateChanged; // tracks whether there is a change in value   
         Values();
         static Values* m_pInstance;       
     
@@ -35,18 +29,12 @@ class Values {
         float get_bstyle_no();
         float get_cstyle_no();
 
-        // int has_ball();
-        // int has_cloth();
-
         void set_cfactor( float s );
         void set_gfactor( float s );
         void set_wfactor( float s );
         
         void set_bstyle_no( float s );
         void set_cstyle_no( float s );
-        
-        // void set_ball( bool s );
-        // void set_cloth( bool s );
 
         static Values* Instance();
 };

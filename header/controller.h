@@ -7,8 +7,8 @@ class Controller {
         int rigidity_item_id; // done
         int gravity_item_id; // done
         int wind_item_id; // done
-        int cloth_item_id;
-        int ball_item_id;
+        int cloth_item_id; // done
+        int ball_item_id; 
         int has_cloth_id;
         int has_ball_id;
         float translate_xy[2] = { -10.0f, 6.0f };
@@ -54,18 +54,10 @@ class Controller {
             SOLID_GRAY
         };
 
-        // void s_has_gravity_id( int s );
-        // void s_wind_item_id( int s );
-        // void s_rigidity_item_id( int s );
-        // void s_gravity_item_id( int s );
-        // void s_cloth_item_id( int s );
-        // void s_ball_item_id( int s );
-        // void s_has_cloth_id( int s );
         int g_has_cloth_id_val();
         int g_has_ball_id_val();
         int g_cloth_item_id_val();
         int g_ball_item_id_val();
-        // float[] g_translatexy_id_val();
 
         int * g_has_gravity_id();
         int * g_wind_item_id();

@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <stddef.h>
+
 #include <GL/glut.h>
 
 #include "controller.h"
@@ -31,22 +30,16 @@ Controller::Controller() {
 float Controller::setSlider( int value_id ) {
     float v;
     if ( value_id == NEG_75 ) {
-        printf("0.75");
         v = 0.75;
     } else if ( value_id == NEG_50 ) {
-         printf("0.50");
         v = 0.50;
     } else if ( value_id == NEG_25 ) {
-         printf("0.25");
         v = 0.25;
     } else if ( value_id == POS_25 ) {
-         printf("1.25");
         v = 1.25;
     } else if ( value_id == POS_50 ) {
-         printf("1.50");
         v = 1.50;
     } else if ( value_id == POS_2X ) {
-         printf("2.00");
         v = 2.0;
     } else if ( value_id == NONE ) {
         v = 0.0;
@@ -73,22 +66,19 @@ void Controller::callback_fn( int control_id ) {
             v -> set_wfactor( setSlider(wind_item_id) );
         break;
         case CLOTH_LISTBOX:
-            // printf ("CLOTH LIST BOX ITEM CHANGED");
+            
         break;
         case BALL_LISTBOX:
-            // printf ("BALL LIST BOX ITEM CHANGED");
+            
         break;
         case TRANSLATION_XY:
-            // translate_xy[0] += 0.02;
-            // printf ("%f, %f \n", translate_xy[0], translate_xy[1]);
+            
         break;
-        default:
-            printf ("Uncaught exception from GLUI callback");
+        default: {}
     }
 }
 
 void Controller::keyboard( unsigned char key, int x, int y ) {
-    // printf("Keyboard pressed\n");
     switch( key ) {
         case 'r':
             translate_xy[0] = -10.00f;
@@ -98,13 +88,11 @@ void Controller::keyboard( unsigned char key, int x, int y ) {
            translate_xy[0] = -10.00f;
             translate_xy[1] = 6.0f;
         break;
-        default:
-            printf(" Unhandle keyboard callback key: %c ", key );
+        default:{}
     }
 }
 
 void Controller::special( int key, int x, int y ){
-    // printf("special pressed\n");
     switch( key ) {
         case GLUT_KEY_UP:
             translate_xy[1] += XY_SPEED;
@@ -118,8 +106,7 @@ void Controller::special( int key, int x, int y ){
         case GLUT_KEY_RIGHT:
             translate_xy[0] += XY_SPEED;
         break;
-        default:
-            printf(" Unhandled special callback key: %d" , key );
+        default:{}
     }
 }
 
@@ -174,7 +161,3 @@ float* Controller::g_translatexy_id() {
 float* Controller::g_rotation_id() {
     return &rotation_matrix[0];
 }
-
-// float[] Controller::g_translatexy_id_val() {
-//     return translate_xy;
-// }
